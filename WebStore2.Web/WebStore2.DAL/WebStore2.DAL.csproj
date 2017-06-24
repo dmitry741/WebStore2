@@ -46,5 +46,11 @@
     <Folder Include="Context\" />
     <Folder Include="Repositories\Base\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebStore.Domain\WebStore2.Domain.csproj">
+      <Project>{b102eff3-7134-453a-9d2b-a06de338366f}</Project>
+      <Name>WebStore2.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

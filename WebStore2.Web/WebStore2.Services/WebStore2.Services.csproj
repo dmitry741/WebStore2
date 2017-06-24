@@ -45,5 +45,15 @@
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebStore.Domain\WebStore2.Domain.csproj">
+      <Project>{b102eff3-7134-453a-9d2b-a06de338366f}</Project>
+      <Name>WebStore2.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebStore2.DAL\WebStore2.DAL.csproj">
+      <Project>{71bf5c90-106f-4ffa-a340-520c6b66da9b}</Project>
+      <Name>WebStore2.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
