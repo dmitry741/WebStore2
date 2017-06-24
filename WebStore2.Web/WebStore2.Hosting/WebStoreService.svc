@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="WebStore2.Hosting.Service1" CodeBehind="WebStoreService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WebStore2.Hosting.WebStoreService" CodeBehind="WebStoreService.svc.cs" %>

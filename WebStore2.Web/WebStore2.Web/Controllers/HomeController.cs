@@ -10,6 +10,11 @@ namespace WebStore2.Web.Controllers
     {
         public ActionResult Index()
         {
+            using (var wcc = new WebStore2Service.WebStoreServiceClient())
+            {
+
+            }
+
             return View();
         }
 

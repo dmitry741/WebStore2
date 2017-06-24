@@ -60,6 +60,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\DataSources\WebStore2.Domain.OrdersService.ProductDataContract.datasource" />
     <Content Include="WebStoreService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -91,6 +92,9 @@
       <Project>{a4ad4576-4620-4b31-bf26-83e29be9dffc}</Project>
       <Name>WebStore2.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
