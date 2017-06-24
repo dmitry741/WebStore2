@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="64990309-c9a2-4fd5-9d2e-b2df019a7e94" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eb645b25-888a-48ea-b074-842f535c035a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:55663/WebStoreService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebStoreService.disco" MetadataType="Disco" ID="09b8bbb5-5ad2-4c64-8cde-0ecebb0a6be2" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?disco" />
-    <MetadataFile FileName="WebStoreService.xsd" MetadataType="Schema" ID="51aae9d7-11ce-4262-8faa-64a1d132d5ca" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?xsd=xsd1" />
-    <MetadataFile FileName="WebStoreService1.xsd" MetadataType="Schema" ID="1fd08943-dddd-46b5-9d8b-335bd0aa984c" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?xsd=xsd0" />
-    <MetadataFile FileName="WebStoreService2.xsd" MetadataType="Schema" ID="7349130e-3c3e-4578-9035-a6364104a2bd" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?xsd=xsd2" />
-    <MetadataFile FileName="WebStoreService.wsdl" MetadataType="Wsdl" ID="7500c74c-e087-43bd-9333-87b8123630a8" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?wsdl" />
+    <MetadataFile FileName="WebStoreService.disco" MetadataType="Disco" ID="8f56129f-1628-4b31-9add-e12db3929bcb" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?disco" />
+    <MetadataFile FileName="WebStoreService.xsd" MetadataType="Schema" ID="1de50569-695a-4439-b254-68514251d227" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WebStoreService1.xsd" MetadataType="Schema" ID="b3413cc0-992b-455e-925e-cc1598fa8a24" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WebStoreService2.xsd" MetadataType="Schema" ID="8ac20284-ff84-49d4-b577-427fa9e854b0" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WebStoreService.wsdl" MetadataType="Wsdl" ID="fbb7040c-3b63-42cd-8004-1661fe5cf64a" SourceId="1" SourceUrl="http://localhost:55663/WebStoreService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

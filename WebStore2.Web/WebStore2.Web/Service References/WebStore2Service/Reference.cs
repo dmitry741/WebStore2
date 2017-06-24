@@ -20,6 +20,12 @@ namespace WebStore2.Web.WebStore2Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/GetProducts", ReplyAction="http://tempuri.org/IWebStoreService/GetProductsResponse")]
         System.Threading.Tasks.Task<WebStore2.Domain.OrdersService.ProductDataContract[]> GetProductsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/GetData", ReplyAction="http://tempuri.org/IWebStoreService/GetDataResponse")]
+        string GetData(int val);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/GetData", ReplyAction="http://tempuri.org/IWebStoreService/GetDataResponse")]
+        System.Threading.Tasks.Task<string> GetDataAsync(int val);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace WebStore2.Web.WebStore2Service {
         
         public System.Threading.Tasks.Task<WebStore2.Domain.OrdersService.ProductDataContract[]> GetProductsAsync() {
             return base.Channel.GetProductsAsync();
+        }
+        
+        public string GetData(int val) {
+            return base.Channel.GetData(val);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetDataAsync(int val) {
+            return base.Channel.GetDataAsync(val);
         }
     }
 }

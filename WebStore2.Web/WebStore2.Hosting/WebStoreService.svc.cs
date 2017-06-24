@@ -15,5 +15,10 @@ namespace WebStore2.Hosting
         {
             throw new NotImplementedException();
         }
+
+        public string GetData(int val)
+        {
+            return string.Format("You code is {0}", val);
+        }
     }
 }

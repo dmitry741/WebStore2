@@ -13,16 +13,35 @@
   <wsdl:message name="IWebStoreService_GetProducts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductsResponse" />
   </wsdl:message>
+  <wsdl:message name="IWebStoreService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IWebStoreService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWebStoreService">
     <wsdl:operation name="GetProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/GetProducts" message="tns:IWebStoreService_GetProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebStoreService/GetProductsResponse" message="tns:IWebStoreService_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/GetData" message="tns:IWebStoreService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebStoreService/GetDataResponse" message="tns:IWebStoreService_GetData_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWebStoreService" type="tns:IWebStoreService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProducts">
       <soap:operation soapAction="http://tempuri.org/IWebStoreService/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IWebStoreService/GetData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

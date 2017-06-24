@@ -12,7 +12,8 @@ namespace WebStore2.Web.Controllers
         {
             using (var wcc = new WebStore2Service.WebStoreServiceClient())
             {
-
+                string result = wcc.GetData(29);
+                ViewBag.Message = result;
             }
 
             return View();

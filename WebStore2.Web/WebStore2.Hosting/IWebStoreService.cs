@@ -16,6 +16,7 @@ namespace WebStore2.Hosting
         [OperationContract]
         IEnumerable<ProductDataContract> GetProducts();
 
+        [OperationContract]
+        string GetData(int val);
     }
-
 }
