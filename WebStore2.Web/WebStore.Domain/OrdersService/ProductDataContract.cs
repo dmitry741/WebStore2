@@ -29,28 +29,5 @@ namespace WebStore2.Domain.OrdersService
         {
             return Name;
         }
-    }
-
-    public class MyProductDataContractConfiguration : EntityTypeConfiguration<ProductDataContract>
-    {
-        public MyProductDataContractConfiguration()
-        {
-            HasKey(x => x.id);
-
-            Property(x => x.id)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-                .IsRequired();
-
-            Property(x => x.Name)
-                .HasMaxLength(250)
-                .IsRequired();
-
-            Property(x => x.Category)
-                .HasMaxLength(250)
-                .IsRequired();
-
-            Property(x => x.Price)
-                .IsRequired();
-        }
-    }
+    }    
 }

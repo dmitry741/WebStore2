@@ -18,7 +18,7 @@ namespace WebStore2.Hosting
 
         public string GetData(int val)
         {
-            return string.Format("You code is {0}", val);
+            return string.Format("Your code is {0}", val);
         }
     }
 }

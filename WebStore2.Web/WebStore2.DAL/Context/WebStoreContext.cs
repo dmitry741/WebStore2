@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using WebStore2.Domain.OrdersService;
+using WebStore2.Domain.Entities;
 
 namespace WebStore2.DAL.Context
 {
@@ -12,11 +12,11 @@ namespace WebStore2.DAL.Context
     {
         public WebStoreContext() : base("Context") { }
 
-        public DbSet<ProductDataContract> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new MyProductDataContractConfiguration());
+            modelBuilder.Configurations.Add(new MyProductConfiguration());
         }
     }
 }
