@@ -13,7 +13,25 @@ namespace WebStore2.Hosting
     {
         public IEnumerable<ProductDataContract> GetProducts()
         {
-            throw new NotImplementedException();
+            WebStore2.Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
+
+            var list = dbe.GetProducts();
+            List<ProductDataContract> result = new List<ProductDataContract>();
+
+            foreach (var p in list)
+            {
+                ProductDataContract pdc = new ProductDataContract
+                {
+                    id = p.id,
+                    Name = p.Name,
+                    Category = p.Category,
+                    Price = p.Price
+                };
+
+                result.Add(pdc);
+            }
+
+            return result;
         }
 
         public string GetData(int val)

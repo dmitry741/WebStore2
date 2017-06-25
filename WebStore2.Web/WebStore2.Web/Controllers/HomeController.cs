@@ -10,13 +10,30 @@ namespace WebStore2.Web.Controllers
     {
         public ActionResult Index()
         {
+            var list = new List<Models.Product>();
+
             using (var wcc = new WebStore2Service.WebStoreServiceClient())
             {
                 string result = wcc.GetData(29);
                 ViewBag.Message = result;
+
+                IEnumerable<Domain.OrdersService.ProductDataContract> products = wcc.GetProducts();
+
+                foreach (var p in products)
+                {
+                    Models.Product model = new Models.Product
+                    {
+                        id = p.id,
+                        Name = p.Name,
+                        Category = p.Category,
+                        Price = p.Price
+                    };
+
+                    list.Add(model);
+                }
             }
 
-            return View();
+            return View(list);
         }
 
         public ActionResult About()
