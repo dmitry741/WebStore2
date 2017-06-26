@@ -13,7 +13,7 @@ namespace WebStore2.Hosting
     {
         public IEnumerable<ProductDataContract> GetProducts()
         {
-            WebStore2.Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
+            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
 
             var list = dbe.GetProducts();
             List<ProductDataContract> result = new List<ProductDataContract>();
