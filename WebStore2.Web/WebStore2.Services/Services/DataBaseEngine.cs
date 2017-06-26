@@ -18,12 +18,13 @@ namespace WebStore2.Services.Services
         public bool RemoveAt(int id)
         {
             bool result = false;
-            var products = m_wc.Products.ToList();
+            var products = m_wc.Products;
             Domain.Entities.Product item = products.FirstOrDefault(x => x.id == id);            
 
             if (item != null)
             {
                 products.Remove(item);
+                m_wc.SaveChanges();
                 result = true;
             }
 

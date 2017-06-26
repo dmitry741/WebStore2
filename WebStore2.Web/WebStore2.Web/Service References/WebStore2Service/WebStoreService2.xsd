@@ -8,7 +8,10 @@
   <xs:element name="ArrayOfProductDataContract" nillable="true" type="tns:ArrayOfProductDataContract" />
   <xs:complexType name="ProductDataContract">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductDataContract" nillable="true" type="tns:ProductDataContract" />

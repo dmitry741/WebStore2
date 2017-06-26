@@ -38,7 +38,7 @@ namespace WebStore2.Hosting
         {
             Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
 
-            return false;
+            return dbe.RemoveAt(id);
         }
 
         public string GetData(int val)

@@ -10,6 +10,7 @@
         <td><b>Наименование</b></td>
         <td><b>Категория</b></td>
         <td><b>Цена руб. (100 г)</b></td>
+        <td></td>
     </tr>
 
     @foreach (var item in Model)
@@ -18,6 +19,7 @@
             <td>@item.Name</td>
             <td>@item.Category</td>
             <td>@item.Price</td>
+            <td><a href="@Url.Action("Remove", "Home", new { id = @item.id })">Удалить</a></td>
         </tr>
     }
 </table>

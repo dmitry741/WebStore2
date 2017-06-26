@@ -34,6 +34,19 @@ namespace WebStore2.Web.Controllers
             return View(list);
         }
 
+        public ActionResult Remove(int? id)
+        {
+            if (id.HasValue)
+            {
+                using (var wcc = new WebStore2Service.WebStoreServiceClient())
+                {
+                    wcc.RemoveAt(id.Value);
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
