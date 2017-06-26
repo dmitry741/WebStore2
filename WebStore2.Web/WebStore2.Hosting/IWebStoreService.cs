@@ -20,6 +20,9 @@ namespace WebStore2.Hosting
         bool RemoveAt(int id);
 
         [OperationContract]
+        void AddProduct(ProductDataContract pdc);
+
+        [OperationContract]
         string GetData(int val);
     }
 }

@@ -30,5 +30,11 @@ namespace WebStore2.Services.Services
 
             return result;
         }
+
+        public void Add(Domain.Entities.Product model)
+        {
+            m_wc.Products.Add(model);
+            m_wc.SaveChanges();
+        }
     }
 }

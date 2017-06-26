@@ -19,7 +19,7 @@ namespace WebStore2.Hosting
 
             foreach (var p in list)
             {
-                // маппинг сущностей на ProductDataContract
+                // маппинг сущности на ProductDataContract
                 ProductDataContract pdc = new ProductDataContract
                 {
                     id = p.id,
@@ -39,6 +39,21 @@ namespace WebStore2.Hosting
             Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
 
             return dbe.RemoveAt(id);
+        }
+
+        public void AddProduct(ProductDataContract pdc)
+        {
+            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
+
+            //  маппинг ProductDataContract на cущность
+            Domain.Entities.Product p = new Domain.Entities.Product
+            {
+                Name = pdc.Name,
+                Category = pdc.Category,
+                Price = pdc.Price
+            };
+
+            dbe.Add(p);
         }
 
         public string GetData(int val)

@@ -19,6 +19,12 @@
   <wsdl:message name="IWebStoreService_RemoveAt_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveAtResponse" />
   </wsdl:message>
+  <wsdl:message name="IWebStoreService_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IWebStoreService_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
   <wsdl:message name="IWebStoreService_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
   </wsdl:message>
@@ -33,6 +39,10 @@
     <wsdl:operation name="RemoveAt">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/RemoveAt" message="tns:IWebStoreService_RemoveAt_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebStoreService/RemoveAtResponse" message="tns:IWebStoreService_RemoveAt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/AddProduct" message="tns:IWebStoreService_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebStoreService/AddProductResponse" message="tns:IWebStoreService_AddProduct_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/GetData" message="tns:IWebStoreService_GetData_InputMessage" />
@@ -52,6 +62,15 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveAt">
       <soap:operation soapAction="http://tempuri.org/IWebStoreService/RemoveAt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IWebStoreService/AddProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

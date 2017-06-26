@@ -27,6 +27,12 @@ namespace WebStore2.Web.WebStore2Service {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/RemoveAt", ReplyAction="http://tempuri.org/IWebStoreService/RemoveAtResponse")]
         System.Threading.Tasks.Task<bool> RemoveAtAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/AddProduct", ReplyAction="http://tempuri.org/IWebStoreService/AddProductResponse")]
+        void AddProduct(WebStore2.Domain.OrdersService.ProductDataContract pdc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/AddProduct", ReplyAction="http://tempuri.org/IWebStoreService/AddProductResponse")]
+        System.Threading.Tasks.Task AddProductAsync(WebStore2.Domain.OrdersService.ProductDataContract pdc);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/GetData", ReplyAction="http://tempuri.org/IWebStoreService/GetDataResponse")]
         string GetData(int val);
         
@@ -75,6 +81,14 @@ namespace WebStore2.Web.WebStore2Service {
         
         public System.Threading.Tasks.Task<bool> RemoveAtAsync(int id) {
             return base.Channel.RemoveAtAsync(id);
+        }
+        
+        public void AddProduct(WebStore2.Domain.OrdersService.ProductDataContract pdc) {
+            base.Channel.AddProduct(pdc);
+        }
+        
+        public System.Threading.Tasks.Task AddProductAsync(WebStore2.Domain.OrdersService.ProductDataContract pdc) {
+            return base.Channel.AddProductAsync(pdc);
         }
         
         public string GetData(int val) {

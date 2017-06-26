@@ -12,9 +12,9 @@ namespace WebStore2.Web.Controllers
         {
             var list = new List<Models.Product>();
 
-            using (var wcc = new WebStore2Service.WebStoreServiceClient())
+            using (var wssc = new WebStore2Service.WebStoreServiceClient())
             {
-                IEnumerable<Domain.OrdersService.ProductDataContract> products = wcc.GetProducts();
+                IEnumerable<Domain.OrdersService.ProductDataContract> products = wssc.GetProducts();
 
                 foreach (var p in products)
                 {
@@ -38,13 +38,42 @@ namespace WebStore2.Web.Controllers
         {
             if (id.HasValue)
             {
-                using (var wcc = new WebStore2Service.WebStoreServiceClient())
+                using (var wssc = new WebStore2Service.WebStoreServiceClient())
                 {
-                    wcc.RemoveAt(id.Value);
+                    wssc.RemoveAt(id.Value);
                 }
             }
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SaveAdd(Models.Product model)
+        {
+            if (ModelState.IsValid)
+            {
+                //  маппинг модели для формы на ProductDataContract
+                Domain.OrdersService.ProductDataContract pdc = new Domain.OrdersService.ProductDataContract
+                {
+                    Name = model.Name,
+                    Category = model.Category,
+                    Price = model.Price
+                };
+
+                using (var wssc = new WebStore2Service.WebStoreServiceClient())
+                {
+                    wssc.AddProduct(pdc);
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            return View("AddProduct", model);
         }
 
         public ActionResult About()
