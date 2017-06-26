@@ -14,12 +14,12 @@ namespace WebStore2.Hosting
         public IEnumerable<ProductDataContract> GetProducts()
         {
             Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
-
             var list = dbe.GetProducts();
             List<ProductDataContract> result = new List<ProductDataContract>();
 
             foreach (var p in list)
             {
+                // маппинг сущностей на ProductDataContract
                 ProductDataContract pdc = new ProductDataContract
                 {
                     id = p.id,

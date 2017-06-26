@@ -14,13 +14,11 @@ namespace WebStore2.Web.Controllers
 
             using (var wcc = new WebStore2Service.WebStoreServiceClient())
             {
-                string result = wcc.GetData(29);
-                ViewBag.Message = result;
-
                 IEnumerable<Domain.OrdersService.ProductDataContract> products = wcc.GetProducts();
 
                 foreach (var p in products)
                 {
+                    //  маппинг ProductDataContract на модель для формы
                     Models.Product model = new Models.Product
                     {
                         id = p.id,
