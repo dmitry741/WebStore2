@@ -14,5 +14,20 @@ namespace WebStore2.Services.Services
         {
             return m_wc.Products;
         }
+
+        public bool RemoveAt(int id)
+        {
+            bool result = false;
+            var products = m_wc.Products.ToList();
+            Domain.Entities.Product item = products.FirstOrDefault(x => x.id == id);            
+
+            if (item != null)
+            {
+                products.Remove(item);
+                result = true;
+            }
+
+            return result;
+        }
     }
 }

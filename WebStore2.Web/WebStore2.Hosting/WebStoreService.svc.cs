@@ -34,6 +34,13 @@ namespace WebStore2.Hosting
             return result;
         }
 
+        public bool RemoveAt(int id)
+        {
+            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
+
+            return false;
+        }
+
         public string GetData(int val)
         {
             return string.Format("Your code is {0}", val);

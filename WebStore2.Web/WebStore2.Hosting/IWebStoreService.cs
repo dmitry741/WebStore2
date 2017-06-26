@@ -17,6 +17,9 @@ namespace WebStore2.Hosting
         IEnumerable<ProductDataContract> GetProducts();
 
         [OperationContract]
+        bool RemoveAt(int id);
+
+        [OperationContract]
         string GetData(int val);
     }
 }
