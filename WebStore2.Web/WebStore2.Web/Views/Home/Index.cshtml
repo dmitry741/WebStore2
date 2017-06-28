@@ -28,3 +28,19 @@
 
 <a class="btn btn-success" href="@Url.Action("AddProduct")" role="button">Добавить товар</a>
 <br />
+<br />
+
+@using (Html.BeginForm("CategoryChosen", "Home", FormMethod.Post))
+{
+    <fieldset>
+        Категории
+        @Html.DropDownList("CategoryType")
+        <br />
+        <br />
+
+        <p>
+            <input type="submit" value="Применить фильтр" class="btn btn-default"/>
+        </p>
+
+    </fieldset>
+}

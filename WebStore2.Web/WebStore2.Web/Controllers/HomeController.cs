@@ -8,7 +8,7 @@ namespace WebStore2.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string filter)
         {
             var list = new List<Models.Product>();
 
@@ -30,6 +30,15 @@ namespace WebStore2.Web.Controllers
                     list.Add(model);
                 }
             }
+
+            // catagories
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            items.Add(new SelectListItem { Text = "Все категории", Value = "0", Selected = true });
+            items.Add(new SelectListItem { Text = "Чай", Value = "1" });
+            items.Add(new SelectListItem { Text = "Кофе", Value = "2" });
+
+            ViewBag.CategoryType = items;
 
             return View(list);
         }
@@ -88,6 +97,11 @@ namespace WebStore2.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult CategoryChosen(string CategoryType)
+        {
+            return Redirect("Index/?filter=" + CategoryType);
         }
     }
 }
