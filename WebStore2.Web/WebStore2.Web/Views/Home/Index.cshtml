@@ -30,20 +30,13 @@
 <br />
 <br />
 
-
 @using (Html.BeginForm("Index", "Home", FormMethod.Get))
 {
     <fieldset>
         <label for="CategoryType">Категории</label>
-        <select class="form-control" id="CategoryType" name="CategoryType">
-            @foreach (var c in ViewBag.CategoryType)
-            {
-                <option value="@c.Value">@c.Text</option>
-            }
-        </select>
+        @Html.DropDownList("CategoryType")
         <br />
         <br />
-
         <p><input type="submit" value="Применить фильтр" class="btn btn-default" /></p>
     </fieldset>
 }

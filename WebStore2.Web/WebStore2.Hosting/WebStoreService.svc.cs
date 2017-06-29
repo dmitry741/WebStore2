@@ -11,10 +11,11 @@ namespace WebStore2.Hosting
 {
     public class WebStoreService : IWebStoreService
     {
+        Services.Services.DataBaseEngine m_dbe = new Services.Services.DataBaseEngine();
+
         public IEnumerable<ProductDataContract> GetProducts()
-        {
-            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
-            var list = dbe.GetProducts();
+        {            
+            var list = m_dbe.GetProducts();
             List<ProductDataContract> result = new List<ProductDataContract>();
 
             foreach (var p in list)
@@ -36,8 +37,7 @@ namespace WebStore2.Hosting
 
         public IEnumerable<CategoryDataContract> GetCategories()
         {
-            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
-            var list = dbe.GetCategories();
+            var list = m_dbe.GetCategories();
             List<CategoryDataContract> result = new List<CategoryDataContract>();
 
             foreach (var p in list)
@@ -57,15 +57,11 @@ namespace WebStore2.Hosting
 
         public bool RemoveAt(int id)
         {
-            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
-
-            return dbe.RemoveAt(id);
+            return m_dbe.RemoveAt(id);
         }
 
         public void AddProduct(ProductDataContract pdc)
         {
-            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
-
             //  маппинг ProductDataContract на cущность
             Domain.Entities.Product p = new Domain.Entities.Product
             {
@@ -74,7 +70,7 @@ namespace WebStore2.Hosting
                 Price = pdc.Price
             };
 
-            dbe.Add(p);
+            m_dbe.Add(p);
         }
 
         public string GetData(int val)

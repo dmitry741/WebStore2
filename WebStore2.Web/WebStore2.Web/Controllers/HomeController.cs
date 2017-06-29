@@ -36,7 +36,7 @@ namespace WebStore2.Web.Controllers
                 var categories = wssc.GetCategories();
 
                 // заполняем DropDownList для View
-                items.Add(new SelectListItem { Text = "Все категории", Value = "All", Selected = true });
+                items.Add(new SelectListItem { Text = "Все категории", Value = "All" });
 
                 foreach (var c in categories)
                 {
@@ -50,7 +50,7 @@ namespace WebStore2.Web.Controllers
                     if (CategoryType != "All")
                     {
                         // применяем фильтр
-                        var FilterList = list.Where(x => x.Category == CategoryType);
+                        var FilterList = list.Where(x => x.Category.ToUpper() == CategoryType.ToUpper());
                         list = FilterList.ToList();
                     }
                 }
