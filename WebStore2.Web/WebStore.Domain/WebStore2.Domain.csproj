@@ -50,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Categories.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="OrdersService\CategoryDataContract.cs" />
     <Compile Include="OrdersService\ProductDataContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

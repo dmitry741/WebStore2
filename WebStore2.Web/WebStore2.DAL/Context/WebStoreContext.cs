@@ -13,10 +13,12 @@ namespace WebStore2.DAL.Context
         public WebStoreContext() : base("Context") { }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new MyProductConfiguration());
+            modelBuilder.Configurations.Add(new MyCategoryConfiguration());
         }
     }
 }

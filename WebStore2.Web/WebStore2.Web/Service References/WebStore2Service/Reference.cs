@@ -21,6 +21,12 @@ namespace WebStore2.Web.WebStore2Service {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/GetProducts", ReplyAction="http://tempuri.org/IWebStoreService/GetProductsResponse")]
         System.Threading.Tasks.Task<WebStore2.Domain.OrdersService.ProductDataContract[]> GetProductsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/GetCategories", ReplyAction="http://tempuri.org/IWebStoreService/GetCategoriesResponse")]
+        WebStore2.Domain.OrdersService.CategoryDataContract[] GetCategories();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/GetCategories", ReplyAction="http://tempuri.org/IWebStoreService/GetCategoriesResponse")]
+        System.Threading.Tasks.Task<WebStore2.Domain.OrdersService.CategoryDataContract[]> GetCategoriesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebStoreService/RemoveAt", ReplyAction="http://tempuri.org/IWebStoreService/RemoveAtResponse")]
         bool RemoveAt(int id);
         
@@ -73,6 +79,14 @@ namespace WebStore2.Web.WebStore2Service {
         
         public System.Threading.Tasks.Task<WebStore2.Domain.OrdersService.ProductDataContract[]> GetProductsAsync() {
             return base.Channel.GetProductsAsync();
+        }
+        
+        public WebStore2.Domain.OrdersService.CategoryDataContract[] GetCategories() {
+            return base.Channel.GetCategories();
+        }
+        
+        public System.Threading.Tasks.Task<WebStore2.Domain.OrdersService.CategoryDataContract[]> GetCategoriesAsync() {
+            return base.Channel.GetCategoriesAsync();
         }
         
         public bool RemoveAt(int id) {

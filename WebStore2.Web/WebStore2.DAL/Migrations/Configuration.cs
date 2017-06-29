@@ -15,10 +15,9 @@ namespace WebStore2.DAL.Migrations
 
         protected override void Seed(Context.WebStoreContext context)
         {
-            context.Products.AddOrUpdate(e => e.id,
+             context.Products.AddOrUpdate(e => e.id,
              new Product
              {
-                 id = 1,
                  Name = "Черный чай Assam",
                  Price = 123,
                  Category = "Чай"
@@ -26,7 +25,6 @@ namespace WebStore2.DAL.Migrations
 
              new Product
              {
-                 id = 2,
                  Name = "Пуэр классический",
                  Price = 211,
                  Category = "Чай"
@@ -34,7 +32,6 @@ namespace WebStore2.DAL.Migrations
 
              new Product
              {
-                 id = 3,
                  Name = "Чай черный с бергамотом",
                  Price = 300,
                  Category = "Чай"
@@ -42,7 +39,6 @@ namespace WebStore2.DAL.Migrations
 
              new Product
              {
-                 id = 4,
                  Name = "Зеленый чай",
                  Price = 100,
                  Category = "Чай"
@@ -50,10 +46,21 @@ namespace WebStore2.DAL.Migrations
 
              new Product
              {
-                 id = 5,
                  Name = "Кофе Марагоджип",
                  Price = 784,
                  Category = "Кофе"
+             }
+             );
+
+            context.Categories.AddOrUpdate(с => с.id,
+             new Category
+             {
+                 Name = "Чай"
+             },
+
+             new Category
+             {
+                 Name = "Кофе"
              }
              );
 

@@ -13,6 +13,12 @@
   <wsdl:message name="IWebStoreService_GetProducts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductsResponse" />
   </wsdl:message>
+  <wsdl:message name="IWebStoreService_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IWebStoreService_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
   <wsdl:message name="IWebStoreService_RemoveAt_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveAt" />
   </wsdl:message>
@@ -36,6 +42,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/GetProducts" message="tns:IWebStoreService_GetProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebStoreService/GetProductsResponse" message="tns:IWebStoreService_GetProducts_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/GetCategories" message="tns:IWebStoreService_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebStoreService/GetCategoriesResponse" message="tns:IWebStoreService_GetCategories_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RemoveAt">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebStoreService/RemoveAt" message="tns:IWebStoreService_RemoveAt_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebStoreService/RemoveAtResponse" message="tns:IWebStoreService_RemoveAt_OutputMessage" />
@@ -53,6 +63,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProducts">
       <soap:operation soapAction="http://tempuri.org/IWebStoreService/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IWebStoreService/GetCategories" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

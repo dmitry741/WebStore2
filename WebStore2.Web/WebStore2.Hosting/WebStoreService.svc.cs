@@ -34,6 +34,27 @@ namespace WebStore2.Hosting
             return result;
         }
 
+        public IEnumerable<CategoryDataContract> GetCategories()
+        {
+            Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();
+            var list = dbe.GetCategories();
+            List<CategoryDataContract> result = new List<CategoryDataContract>();
+
+            foreach (var p in list)
+            {
+                // маппинг сущности на CategoryDataContract
+                CategoryDataContract pdc = new CategoryDataContract
+                {
+                    id = p.id,
+                    Name = p.Name,
+                };
+
+                result.Add(pdc);
+            }
+
+            return result;
+        }
+
         public bool RemoveAt(int id)
         {
             Services.Services.DataBaseEngine dbe = new Services.Services.DataBaseEngine();

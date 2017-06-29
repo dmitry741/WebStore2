@@ -15,6 +15,11 @@ namespace WebStore2.Services.Services
             return m_wc.Products;
         }
 
+        public IEnumerable<Domain.Entities.Category> GetCategories()
+        {
+            return m_wc.Categories;
+        }
+
         public bool RemoveAt(int id)
         {
             bool result = false;

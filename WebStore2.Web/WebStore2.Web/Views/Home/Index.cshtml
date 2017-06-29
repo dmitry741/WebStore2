@@ -30,10 +30,10 @@
 <br />
 <br />
 
-@using (Html.BeginForm("CategoryChosen", "Home", FormMethod.Post))
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
 {
     <fieldset>
-        Категории
+        <label>Категории</label>
         @Html.DropDownList("CategoryType")
         <br />
         <br />
