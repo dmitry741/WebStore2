@@ -30,15 +30,17 @@ namespace WebStore2.Web.Controllers
                     list.Add(model);
                 }
 
-                // catagories
                 List<SelectListItem> items = new List<SelectListItem>();
+
+                // читаем категории товаров из базы
                 var categories = wssc.GetCategories();
 
+                // заполняем DropDownList для View
                 items.Add(new SelectListItem { Text = "Все категории", Value = "All", Selected = true });
 
-                for (int i = 1; i <= categories.Count(); i++)
+                foreach (var c in categories)
                 {
-                    items.Add(new SelectListItem { Text = categories[i - 1].Name, Value = categories[i - 1].Name });
+                    items.Add(new SelectListItem { Text = c.Name, Value = c.Name });
                 }
 
                 ViewBag.CategoryType = items;
@@ -47,6 +49,7 @@ namespace WebStore2.Web.Controllers
                 {
                     if (CategoryType != "All")
                     {
+                        // применяем фильтр
                         var FilterList = list.Where(x => x.Category == CategoryType);
                         list = FilterList.ToList();
                     }
