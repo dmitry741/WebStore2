@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebStore2.Services.Services
 {
-    public class DataBaseEngine
+    public class DataBaseEngine : Services.Base.IDataBaseEngine
     {
         readonly DAL.Context.WebStoreContext m_wc = new DAL.Context.WebStoreContext();
 

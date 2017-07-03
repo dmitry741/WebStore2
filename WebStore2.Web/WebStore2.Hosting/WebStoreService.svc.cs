@@ -11,7 +11,7 @@ namespace WebStore2.Hosting
 {
     public class WebStoreService : IWebStoreService
     {
-        Services.Services.DataBaseEngine m_dbe = new Services.Services.DataBaseEngine();
+        Services.Services.Base.IDataBaseEngine m_dbe = new Services.Services.DataBaseEngine();
 
         public IEnumerable<ProductDataContract> GetProducts()
         {            
@@ -76,6 +76,11 @@ namespace WebStore2.Hosting
         public string GetData(int val)
         {
             return string.Format("Your code is {0}", val);
+        }
+
+        public override string ToString()
+        {
+            return "The first realisation";
         }
     }
 }
