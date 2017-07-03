@@ -6,12 +6,22 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using WebStore2.Domain.OrdersService;
+using Ninject;
 
 namespace WebStore2.Hosting
 {
     public class WebStoreService : IWebStoreService
     {
-        Services.Services.Base.IDataBaseEngine m_dbe = new Services.Services.DataBaseEngine();
+        Services.Services.Base.IDataBaseEngine m_dbe;
+
+        public WebStoreService()
+        {
+            //IKernel ninjectKernel = new StandardKernel();
+            //ninjectKernel.Bind<Services.Services.Base.IDataBaseEngine>().To<Services.Services.DataBaseEngine>();
+            //m_dbe = ninjectKernel.Get<Services.Services.Base.IDataBaseEngine>();
+
+            m_dbe = new Services.Services.DataBaseEngine();
+        }
 
         public IEnumerable<ProductDataContract> GetProducts()
         {            
