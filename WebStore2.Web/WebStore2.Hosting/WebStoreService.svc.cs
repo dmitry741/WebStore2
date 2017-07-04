@@ -6,7 +6,6 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using WebStore2.Domain.OrdersService;
-using Ninject;
 
 namespace WebStore2.Hosting
 {
