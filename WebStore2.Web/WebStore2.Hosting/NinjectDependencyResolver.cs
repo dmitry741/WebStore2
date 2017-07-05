@@ -12,8 +12,10 @@ namespace WebStore2.Hosting
     {
         IKernel m_kernel;
 
-        void AddBinding()
+        public NinjectDepKernel(IKernel kernel)
         {
+            m_kernel = kernel;
+
             m_kernel.Bind<Services.Services.Base.IDataBaseEngine>().To<Services.Services.DataBaseEngine>();
             m_kernel.Bind<IDiscountHelper>().To<FirstDiscountHelper>().WithConstructorArgument("discount", 3);
         }
@@ -21,12 +23,6 @@ namespace WebStore2.Hosting
         public IKernel GetKernel()
         {
             return m_kernel;
-        }
-
-        public NinjectDepKernel(IKernel kernel)
-        {
-            m_kernel = kernel;
-            AddBinding();
         }
     }
 }
