@@ -13,9 +13,16 @@ namespace WebStore2.Hosting
 {
     public class FirstDiscountHelper : IDiscountHelper
     {
+        int m_discount = 1;
+
+        public FirstDiscountHelper(int discount)
+        {
+            m_discount = discount;
+        }
+
         public int GetDiscount(int price)
         {
-            return 1;
+            return m_discount;
         }
     }
 
@@ -27,7 +34,7 @@ namespace WebStore2.Hosting
         public WebStoreService()
         {
             IKernel standartKernel = new StandardKernel();
-            NinjectDependencyResolver ndr = new NinjectDependencyResolver(standartKernel);
+            NinjectDepKernel ndr = new NinjectDepKernel(standartKernel);
             IKernel ninjectKernel = ndr.GetKernel();
 
             m_dbe = ninjectKernel.Get<Services.Services.Base.IDataBaseEngine>();

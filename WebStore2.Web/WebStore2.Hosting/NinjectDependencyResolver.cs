@@ -8,14 +8,14 @@ using Ninject.Web.Common;
 
 namespace WebStore2.Hosting
 {
-    public class NinjectDependencyResolver : IDependencyResolver
+    public class NinjectDepKernel
     {
         IKernel m_kernel;
 
         void AddBinding()
         {
             m_kernel.Bind<Services.Services.Base.IDataBaseEngine>().To<Services.Services.DataBaseEngine>();
-            m_kernel.Bind<IDiscountHelper>().To<FirstDiscountHelper>();
+            m_kernel.Bind<IDiscountHelper>().To<FirstDiscountHelper>().WithConstructorArgument("discount", 3);
         }
 
         public IKernel GetKernel()
@@ -23,20 +23,10 @@ namespace WebStore2.Hosting
             return m_kernel;
         }
 
-        public NinjectDependencyResolver(IKernel kernel)
+        public NinjectDepKernel(IKernel kernel)
         {
             m_kernel = kernel;
             AddBinding();
-        }
-
-        public object GetService(Type st)
-        {
-            return m_kernel.TryGet(st);
-        }
-
-        public IEnumerable<object> GetServices(Type st)
-        {
-            return m_kernel.GetAll(st);
         }
     }
 }
