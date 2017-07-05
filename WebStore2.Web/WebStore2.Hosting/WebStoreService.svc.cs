@@ -5,21 +5,33 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Mvc;
 using WebStore2.Domain.OrdersService;
+using Ninject;
 
 namespace WebStore2.Hosting
 {
+    public class FirstDiscountHelper : IDiscountHelper
+    {
+        public int GetDiscount(int price)
+        {
+            return 1;
+        }
+    }
+
     public class WebStoreService : IWebStoreService
     {
         Services.Services.Base.IDataBaseEngine m_dbe;
+        IDiscountHelper m_dh;
 
         public WebStoreService()
         {
-            //IKernel ninjectKernel = new StandardKernel();
-            //ninjectKernel.Bind<Services.Services.Base.IDataBaseEngine>().To<Services.Services.DataBaseEngine>();
-            //m_dbe = ninjectKernel.Get<Services.Services.Base.IDataBaseEngine>();
+            IKernel standartKernel = new StandardKernel();
+            NinjectDependencyResolver ndr = new NinjectDependencyResolver(standartKernel);
+            IKernel ninjectKernel = ndr.GetKernel();
 
-            m_dbe = new Services.Services.DataBaseEngine();
+            m_dbe = ninjectKernel.Get<Services.Services.Base.IDataBaseEngine>();
+            m_dh = ninjectKernel.Get<IDiscountHelper>();
         }
 
         public IEnumerable<ProductDataContract> GetProducts()
@@ -34,8 +46,8 @@ namespace WebStore2.Hosting
                 {
                     id = p.id,
                     Name = p.Name,
-                    Category = p.Category,
-                    Price = p.Price
+                    Category = p.Category,                    
+                    Price = p.Price - m_dh.GetDiscount(p.Price)
                 };
 
                 result.Add(pdc);

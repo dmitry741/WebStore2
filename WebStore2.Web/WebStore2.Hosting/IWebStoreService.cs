@@ -12,7 +12,6 @@ namespace WebStore2.Hosting
     [ServiceContract]
     public interface IWebStoreService
     {
-
         [OperationContract]
         IEnumerable<ProductDataContract> GetProducts();
 
@@ -27,5 +26,10 @@ namespace WebStore2.Hosting
 
         [OperationContract]
         string GetData(int val);
+    }
+
+    public interface IDiscountHelper
+    {
+        int GetDiscount(int price);
     }
 }
